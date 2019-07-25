@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ISS Challenge Kotlin</string>
+    <string name="duration_seconds">Duration: %1d seconds</string>
+    <string name="time_date">Time: %s</string>
+</resources>
