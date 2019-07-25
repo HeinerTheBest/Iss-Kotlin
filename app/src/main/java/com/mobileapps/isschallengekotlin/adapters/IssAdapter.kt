@@ -1,5 +1,6 @@
 package com.mobileapps.isschallengekotlin.adapters
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import java.util.*
 
 class IssAdapter(val responses : List<Response?>) : RecyclerView.Adapter<IssAdapter.ViewHolder>()
 {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_response,parent,false))
 
     override fun getItemCount() = responses.size
@@ -24,8 +27,9 @@ class IssAdapter(val responses : List<Response?>) : RecyclerView.Adapter<IssAdap
     {
         fun setValues (response : Response?)
         {
-           itemView.tvDuration.text = "Duration: " + response?.duration.toString() + " Seconds"
-           itemView.tvDate.text     = "Time: "+ convertToDate(response?.risetime.toString())
+
+           itemView.tvDuration.text  = itemView.context.getString(R.string.duration_seconds,response?.duration)
+           itemView.tvDate.text      = itemView.context.getString(R.string.time_date,convertToDate(response?.risetime.toString()))
         }
 
         private fun convertToDate(string: String): String
